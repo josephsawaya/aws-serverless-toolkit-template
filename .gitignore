@@ -1,0 +1,9 @@
+node_modules
+.yarn
+*.log
+config.json
+.env
+.build
+build
+coverage
+cdk.out

@@ -1,0 +1,50 @@
+{
+  "name": "template_name",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "configure": "ts-node -r dotenv/config src/infra/configure.ts",
+    "configure:dev": "export NODE_ENV=development; yarn configure",
+    "configure:prod": "export NODE_ENV=production; yarn configure",
+    "build": "webpack --config webpack.config.js",
+    "build:dev": "export NODE_ENV=development; yarn build",
+    "build:prod": "export NODE_ENV=production; yarn build",
+    "deploy": "yarn cdk synth; yarn cdk bootstrap; yarn cdk deploy",
+    "deploy:dev": "yarn configure:dev; yarn build:dev; yarn deploy",
+    "deploy:prod": "yarn configure:prod; yarn build:prod; yarn deploy",
+    "test": "export NODE_ENV=test; yarn configure; jest"
+  },
+  "devDependencies": {
+    "@aws-cdk/aws-apigateway": "^1.61.1",
+    "@aws-cdk/aws-dynamodb": "^1.61.1",
+    "@aws-cdk/aws-lambda": "^1.61.1",
+    "@aws-cdk/core": "^1.57.0",
+    "@types/glob": "^7.1.3",
+    "@types/jest": "^26.0.9",
+    "@types/node": "^14.0.27",
+    "@typescript-eslint/eslint-plugin": "^3.8.0",
+    "@typescript-eslint/parser": "^3.8.0",
+    "aws-cdk": "^1.57.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.6.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "fork-ts-checker-webpack-plugin": "^5.1.0",
+    "glob": "^7.1.6",
+    "jest": "^26.2.2",
+    "prettier": "^2.0.5",
+    "ts-jest": "^26.1.4",
+    "ts-loader": "^8.0.3",
+    "ts-node": "^8.10.2",
+    "tsconfig-paths-webpack-plugin": "^3.3.0",
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "@bgpc/aws-serverless-toolkit": "^1.1.1-rc.2-patch03"
+  }
+}

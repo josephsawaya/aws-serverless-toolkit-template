@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "outDir": "./build",
+    "removeComments": false,
+    "sourceMap": false,
+    "target": "ESNext",
+    "declaration": true
+  }
+}
